@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/andrebadrous/Desktop/CSULB/y3s1/cecs 326/project_3/bank'
+relocations:     []
+...
