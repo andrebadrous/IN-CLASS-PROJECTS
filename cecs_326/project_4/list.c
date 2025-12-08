@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "list.h"
 #include "task.h"
@@ -18,6 +19,26 @@ void insert(struct node **head, Task *newTask)
     newNode->task = newTask;
     newNode->next = *head;
     *head = newNode;
+}
+
+struct node *reverse(struct node *head)
+{
+    struct node *curr;
+    struct node *prev;
+    struct node *next;
+    curr = head;
+    prev = NULL;
+
+    while (curr != NULL)
+    {
+        next = curr->next;
+        curr->next = prev;
+
+        prev = curr;
+        curr = next;
+    }
+
+    return prev;
 }
 
 // delete the selected task from the list
@@ -57,11 +78,12 @@ struct node *traverse(struct node *head, int type)
 
     if (type == 0)
     {
-        while (temp->next != NULL)
+        while (temp != NULL)
         {
+            printf("Process [%s] With priority [%d] ran for [%d] ms.\n", temp->task->name, temp->task->priority, temp->task->burst);
+            usleep(temp->task->burst * 1000);
             temp = temp->next;
         }
-
         return temp;
     }
     else

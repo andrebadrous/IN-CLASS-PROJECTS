@@ -12,5 +12,6 @@ struct node
 
 // insert and delete operations.
 void insert(struct node **head, Task *task);
+struct node *reverse(struct node *head);
 void delete (struct node **head, Task *task);
 struct node *traverse(struct node *head, int type);
