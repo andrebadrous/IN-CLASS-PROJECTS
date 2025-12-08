@@ -25,13 +25,6 @@ void add(char *name, int priority, int burst)
 
 void schedule()
 {
-    struct node *temp;
-
-    while (head != NULL)
-    {
-        temp = traverse(head, 0);
-        printf("Process [%s] With priority [%d] ran for [%d] ms.\n", temp->task->name, temp->task->priority, temp->task->burst);
-        usleep(temp->task->burst * 1000);
-        delete(&head, temp->task);
-    }
+    head = reverse(head);
+    traverse(head, 0);
 }
