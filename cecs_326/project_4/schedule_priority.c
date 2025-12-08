@@ -29,6 +29,7 @@ void add(char *name, int priority, int burst)
 void schedule()
 {
     struct node *temp;
+    head = reverse(head);
 
     while (head != NULL)
     {
