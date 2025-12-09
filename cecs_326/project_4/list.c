@@ -21,6 +21,7 @@ void insert(struct node **head, Task *newTask)
     *head = newNode;
 }
 
+// reverses the linked list
 struct node *reverse(struct node *head)
 {
     struct node *curr;
@@ -38,6 +39,7 @@ struct node *reverse(struct node *head)
         curr = next;
     }
 
+    // returns reversed linked list
     return prev;
 }
 
@@ -71,8 +73,8 @@ void delete(struct node **head, Task *task)
 // traverse the list
 struct node *traverse(struct node *head, int type)
 {
-    // type=0 returns last node;
-    // type=1 returns
+    // type=0 returns last task and is normal traversal;
+    // type=1 returns highest priority task
     struct node *temp;
     temp = head;
 

@@ -18,11 +18,13 @@ struct node *head;
 
 void add(char *name, int priority, int burst)
 {
+    // creates task
     Task *task = malloc(sizeof(Task));
     task->name = name;
     task->priority = priority;
     task->burst = burst;
 
+    //adds task
     insert(&head, task);
 }
 
@@ -31,6 +33,7 @@ void schedule()
     struct node *temp;
     head = reverse(head);
 
+    // gets and runs each task based on priority
     while (head != NULL)
     {
         temp = traverse(head, 1);
